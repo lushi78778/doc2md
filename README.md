@@ -68,3 +68,20 @@ python3 -m venv .venv
 
 Markdown 无法完整表达 Word 的字体、字号、颜色、分页、页眉页脚和
 精确页面布局。本工具优先保留内容结构与常用语义格式。
+
+## 文档站点
+
+项目使用 Docsify 展示 `output` 下的 Markdown 文件，并通过 GitHub
+Actions 自动部署到 GitHub Pages。
+
+本地预览：
+
+```bash
+.venv/bin/python scripts/build_docs_site.py
+.venv/bin/python -m http.server 8000 --directory _site
+```
+
+浏览器访问 `http://localhost:8000`。
+
+首次部署前，需要在 GitHub 仓库的 `Settings > Pages` 中把发布来源设为
+`GitHub Actions`。之后推送 `main` 或 `master` 分支时会自动部署。

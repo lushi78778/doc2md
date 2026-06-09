@@ -26,8 +26,9 @@ build/
 # Logs
 *.log
 
-# Local inputs and generated outputs
+# Local inputs
 original/*
 !original/.gitkeep
-output/*
-!output/.gitkeep
+
+# GitHub Pages build output
+_site/
