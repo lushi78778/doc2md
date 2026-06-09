@@ -21,7 +21,7 @@ def markdown_documents() -> list[Path]:
 
 
 def sidebar_content(documents: list[Path]) -> str:
-    lines = ["- [项目说明](README.md)", "", "- 转换文档"]
+    lines = ["- [项目说明](/README.md)", "", "- 转换文档"]
 
     if not documents:
         lines.append("  - 暂无文档")
@@ -30,7 +30,7 @@ def sidebar_content(documents: list[Path]) -> str:
             relative_path = document.relative_to(ROOT).as_posix()
             encoded_path = quote(relative_path, safe="/")
             title = document.stem.replace("[", r"\[").replace("]", r"\]")
-            lines.append(f"  - [{title}]({encoded_path})")
+            lines.append(f"  - [{title}](/{encoded_path})")
 
     return "\n".join(lines) + "\n"
 
